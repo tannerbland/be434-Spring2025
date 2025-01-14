@@ -2,6 +2,17 @@
 
 Write a program called `seqmagique.py` that will accept FASTA input files and will print the minimum/maximum/average sequence lengths and the number of sequence in each file:
 
+## Using new.py
+
+Create a program template from new.py
+
+```
+cd ./assignments/12_seqmagique
+~/workspace/bin/new.py seqmagique.py
+```
+
+## Usage
+
 ```
 $ ./seqmagique.py tests/inputs/*.fa
 name                     min_len    max_len    avg_len    num_seqs
