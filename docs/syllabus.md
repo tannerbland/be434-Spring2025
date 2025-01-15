@@ -139,37 +139,39 @@ At the end of the semester, each student will implement a program in Python via 
 ## Scheduled Topics/Activities
 
 ```
-Week 1: Course Introduction and Setup: HW0: 00_getting_started_part1
+Week 1    : Course Introduction and Setup, TPP: Getting Started
 
-Week 2: Writing your first python program, HW0: 00_getting_started_part2
+Week 2    : Writing your first python program, TPP: Ch1, HW0: 00_getting_started
 
-Week 3: Hello (Strings), HW1: 01_salutations, Practice Quiz 1
+Week 3    : Hello (Strings), HW1: 01_howdy, Quiz 1, TPP: Ch2 
 
-Week 4: Picnic (Lists), HW2: 02_sum, Practice Quiz 2   
+Week 4    : Picnic (Lists), HW2: 02_divide, Quiz 2, TPP: Ch3  
 
-Week 5: Jump the Five (Dictionaries), HW3: 03_solfege, Practice Quiz 3
+Week 5    : Jump the Five (Dictionaries), HW3: 03_dna, Quiz 3, TPP: Ch4
 
-Week 6: Howler (Files), HW4: 04_cat, Practice Quiz 4
+Week 6    : Howler (Files), HW4: 04_revc, Quiz 4, TPP: Ch5
 
-Week 7: Words Count (Files, algorithms), HW5: 05_proteins, Practice Quiz 5
+Week 7    : Words Count (Files, algorithms), HW5: 05_gc, Quiz 5, TPP: Ch6
 
-Week 8: Apples and Bananas (Regular expressions, refactoring), HW6: 06_iupac, Practice Quiz 6
+Week 8    : Apples and Bananas (Regular expressions, refactoring), HW6: 06_rna, Quiz 6, TPP: Ch8
 
-Week 9: Spring Break!
+Week 9    : Spring Break!
 
-Week 10: Dial-a-Curse/Telephone/Ransom (Randomness), HW7: 07_syndna, Practice Quiz 7
+Week 10   : Dial-a-Curse/Telephone/Ransom (Randomness), HW7: 07_syndna, Quiz 7, TPP: Ch9,10,12
 
-Week 11: Bottles of Beer/Twelve Days of Christmas (Algorithms), HW8: 08_kmers, Practice Quiz 8
+Week 11   : Bottles of Beer/Twelve Days of Christmas (Algorithms), HW8: 08_common, Quiz 8, TPP: Ch11,13
 
-Week 12: WOD (Parsing CVS files), HW9: 09_csvfilter, Practice Quiz 9
+Week 12   : WOD (Parsing CVS files), HW9: 09_blastomatic, Quiz 9, TPP: Ch19
 
-Week 13: Password (Randomness), HW10: 10_common, Practice Quiz 10
+Week 13   : Password (Randomness), HW10: 10_conserved, Quiz 10, TPP: Ch20
 
-Week 14: Tic-Tac-Toe (State), HW11: 11_run_length, Practice Quiz 11
+Week 14   : Tic-Tac-Toe (State), HW11: 11_run_length, Quiz 11, TPP: Ch21
 
-Week 15: Tic-Tac-Toe (Types), HW12: 12_grep, Practice Quiz 12
+Week 15   : Tic-Tac-Toe (Types), HW12: 12_seqmagique, Quiz 12, TPP: Ch22
 
 Week 16-17: Coding Projects 
+
+No Final!
 
 ```
 
