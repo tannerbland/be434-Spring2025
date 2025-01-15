@@ -26,6 +26,8 @@ You can also use an @mention, to ping a particular classmate or me (your instruc
 
 [Here](https://slack.com/blog/collaboration/etiquette-tips-in-slack) are some quick etiquette tips for using Slack and making your communication with our class effective!
 
+Important note, joining the class slack channel is part of the 00_getting_started homework grade item.
+
 ## Author
 
 Bonnie Hurwitz <bhurwitz@arizona.edu>

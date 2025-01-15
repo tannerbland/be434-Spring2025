@@ -21,7 +21,7 @@ Now that you have downloaded the class repository, you can install all of the Py
 python3 -m pip install -r ~/workspace/docs/requirements.txt
 ```
 
-To make sure you installed the modules correctly, try a few out. You should get help messages from each program telling you how to run them.
+To make sure you installed the modules correctly, try a few out in the shell in replit. You should get help messages from each program telling you how to run them.
 
 ```
 flake8 --help
@@ -36,6 +36,11 @@ pytest # this command will test your code with default test discovery mechanism.
 mypy # this command will run type checks on your code with mypy.
 flake8 # this command will check code linting (or how pretty it is!).
 ```
+
+## Add your instructor as a collaborator
+If you need help, I can always "jump in" your repl and see what is going on. But, to do this, you need to add me as a collaborator. On the top right hand side of the replit window, you will see a button called "Invite", click on that button and add my user name "bhurwitz" to add me as a collabortor to your class repl.
+
+Important note, adding me as a collaborator is part of the 00_getting_started homework grade item.
 
 ## Author
 

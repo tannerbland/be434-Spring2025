@@ -5,11 +5,11 @@ I hate writing code from scratch! This week you learned about using a program ca
 In the _bin_ directory of your repo, you should find a program called `new.py` that will help you make a new Python program.
 You can use a few simple unix commands to create a program with this script, for example:
 
-Here is how you can create the `howdy.py` using `new.py`:
+Here is how you can create the `testing.py` using `new.py`:
 
 ```
-$ ~/workspace/bin/new.py -p 'Print greeting' howdy.py
-Done, see new script "howdy.py."
+$ ~/workspace/bin/new.py -p 'This is a test script' testing.py
+Done, see new script "testing.py."
 ```
 
 You can also get a help message to see all of the options:
@@ -34,3 +34,18 @@ optional arguments:
 ```
 
 You can run this command in Replit each time you need to create a script.
+
+## Completing your homework
+
+Next, we are going to make sure you set up everything up correctly, and make sure you can "commit" changes.
+
+* Go to replit, on the left side at the bottom you will see an icon with 4 squares. 
+* Hover over the icon with 4 squares and select "Git" from "all tools"
+* Under "Commit", you should see all changes you have made to your repository in replit. 
+* Write a summary of your commit like, "testing commit", and click on "Stage and commit all changes"
+* Under "Remote Updates", click on the "Sync with Remote" button to push your changes back to GitHub
+
+Important note, all changes need to be in your remote GitHub repository, so I can grade them.
+
+Important note, pushing your testing.py script to your remote GitHub is part of the 00_getting_started homework grade item.
+

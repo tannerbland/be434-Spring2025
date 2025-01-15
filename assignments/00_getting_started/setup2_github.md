@@ -39,6 +39,8 @@ All your assignments will be pushed to GitHub where I will pull the code to my m
 
 ![3git](./images/3_github_add_a_collaborator.png "Share your repo with instructor")
 
+Important note, adding me as a collaborator is part of the 00_getting_started homework grade item.
+
 ## Authors
 
 Bonnie Hurwitz <bhurwitz@arizona.edu> and Ken Youens-Clark <kyclark@gmail.com>
