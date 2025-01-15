@@ -1,3 +1,5 @@
+.PHONY: test
+
 test:
 	pytest -xv test.py au_pair.py
 	flake8 au_pair.py

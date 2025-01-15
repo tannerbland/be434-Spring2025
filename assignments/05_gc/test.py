@@ -6,7 +6,7 @@ import string
 import re
 from subprocess import getstatusoutput
 
-PRG = '../cgc.py'
+PRG = './cgc.py'
 SAMPLE1 = './inputs/1.fa'
 SAMPLE2 = './inputs/2.fa'
 

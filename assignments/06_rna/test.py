@@ -7,7 +7,7 @@ import string
 import random
 import shutil
 
-PRG = '../rna.py'
+PRG = './rna.py'
 INPUT1 = './inputs/input1.txt'
 INPUT2 = './inputs/input2.txt'
 INPUT3 = './inputs/input3.txt'

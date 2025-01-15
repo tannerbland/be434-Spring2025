@@ -6,7 +6,7 @@ import re
 import string
 import random
 
-PRG = '../common.py'
+PRG = './common.py'
 FOO = './inputs/foo.txt'
 BAR = './inputs/bar.txt'
 EXPECTED1 = ['bar', 'foo']

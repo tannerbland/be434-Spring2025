@@ -12,7 +12,7 @@ Next, you will need to install Slack on your computer and login. Download the PC
 
 ## The 2025 Biosystems Analytics Workspace
 
-As part of this class, we will all work together transparently in the 2024 Biosystems Analytics Slack Workspace. You can use this [invitation link](https://join.slack.com/t/be434-spring2025/shared_invite/zt-2w9cau3xg-V0r5d_I1LsymL9c77CgVRQ) to join. From the Slack menu bar, you can add this workspace by selecting "File" -> "Workspace" -> "Sign in to another Workspace". Alternatively you can click on the "+" sign on the left side of the Slack application.
+As part of this class, we will all work together transparently in the 2025 Biosystems Analytics Slack Workspace. You will receive an invitation to join this workspace at the beginning of the semester under your university email (that you used to create your Slack account). Or, you can use this [link](https://join.slack.com/t/be434-spring2025/shared_invite/zt-2xvz5d7pg-~EAESNiv_pMVjcUJnYrSow) to join. From the Slack menu bar, you can add this workspace by selecting "File" -> "Workspace" -> "Sign in to another Workspace". Alternatively you can click on the "+" sign on the left side of the Slack application.
 
 ## Use channels for getting help on specific topics
 

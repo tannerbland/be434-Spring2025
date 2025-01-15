@@ -1,5 +1,6 @@
 .PHONY: test
 
 test:
-	python3 -m pytest -xv --flake8 --pylint --pylint-rcfile=../pylintrc --mypy rna.py tests/test.py
-
+        pytest -xv test.py rna.py
+        flake8 rna.py
+        pylint rna.py

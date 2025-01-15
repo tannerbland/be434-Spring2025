@@ -4,7 +4,7 @@ import os
 import re
 from subprocess import getstatusoutput
 
-PRG = '../divide.py'
+PRG = './divide.py'
 
 
 # --------------------------------------------------

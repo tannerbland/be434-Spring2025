@@ -7,7 +7,7 @@ import re
 import string
 from subprocess import getstatusoutput
 
-PRG = '../blastomatic.py'
+PRG = './blastomatic.py'
 HITS1 = './inputs/hits1.csv'
 HITS2 = './inputs/hits2.csv'
 META = './inputs/meta.csv'

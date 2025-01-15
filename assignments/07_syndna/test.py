@@ -11,7 +11,7 @@ from Bio.SeqUtils import GC
 from numpy import mean
 from itertools import chain
 
-prg = '../syndna.py'
+prg = './syndna.py'
 
 
 # --------------------------------------------------

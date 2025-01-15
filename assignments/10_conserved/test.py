@@ -6,7 +6,7 @@ import string
 import re
 from subprocess import getstatusoutput, getoutput
 
-PRG = '../conserved.py'
+PRG = './conserved.py'
 GOOD1 = './inputs/seqs1.fa'
 GOOD2 = './inputs/seqs2.fa'
 

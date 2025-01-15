@@ -1,3 +1,6 @@
+typing
+biopython
+numpy
 pytest
 pylint
 flake8

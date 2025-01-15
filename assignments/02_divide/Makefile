@@ -1,4 +1,6 @@
 .PHONY: test
 
 test:
-	pytest -xv --pylint --flake8 tests/test.py
+        pytest -xv test.py divide.py
+        flake8 divide.py
+        pylint divide.py

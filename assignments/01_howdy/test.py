@@ -3,7 +3,7 @@
 import os
 from subprocess import getstatusoutput
 
-PRG = '../howdy.py'
+PRG = './howdy.py'
 
 
 # --------------------------------------------------
