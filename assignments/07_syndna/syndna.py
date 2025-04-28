@@ -71,7 +71,7 @@ def get_args():
 # --------------------------------------------------
 def create_pool(pctgc, max_len, seq_type):
     """ Create the pool of bases """
-    if seq_type == 'dna'
+    if seq_type == 'dna':
         t_or_u = 'T'
     else:
         t_or_u = 'U'
