@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Author : Tanner Bland <tannerbland@arizona.edu>
-Date   : 2025-04-13
+Date   : 2025-04-20
 Purpose: Run-length encoding of DNA
 """
 
