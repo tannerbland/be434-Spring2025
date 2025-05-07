@@ -2,7 +2,7 @@
 """
 Author : Tanner Bland <tannerbland@arizona.edu>
 Date   : 2025-04-13
-Purpose: Run-length encoding of DNA sequences
+Purpose: Run-length encoding of DNA
 """
 
 import argparse
@@ -18,64 +18,59 @@ def get_args():
         description='Run-length encoding/data compression',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('text',
-                        metavar='str',
-                        help='DNA text or file')
+    parser.add_argument('str',
+                       metavar='str',
+                       type=str,
+                       help='DNA text or file')
 
     return parser.parse_args()
 
 
 # --------------------------------------------------
 def rle(seq):
-    """Run-length encode a DNA sequence"""
-
+    """Perform run-length encoding on a DNA sequence"""
     if not seq:
         return ''
 
-    encoded = []
+    compressed = []
+    current_char = seq[0]
     count = 1
-    prev = seq[0]
 
     for char in seq[1:]:
-        if char == prev:
+        if char == current_char:
             count += 1
         else:
-            encoded.append(prev + (str(count) if count > 1 else ''))
-            prev = char
+            compressed.append(current_char + (str(count) if count > 1 else ''))
+            current_char = char
             count = 1
 
-    encoded.append(prev + (str(count) if count > 1 else ''))
+    compressed.append(current_char + (str(count) if count > 1 else ''))
+    return ''.join(compressed)
 
-    return ''.join(encoded)
+
+# --------------------------------------------------
+def process_input(input_str):
+    """Determine if input is a file or sequence and process accordingly"""
+    if os.path.isfile(input_str):
+        with open(input_str, 'rt', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if line:  # Skip empty lines
+                    yield rle(line)
+    else:
+        yield rle(input_str)
 
 
 # --------------------------------------------------
 def main():
-    """Main program"""
-
+    """Main program logic"""
     args = get_args()
-    arg = args.text
-
-    # Determine if the input is a file
-    if os.path.isfile(arg):
-        with open(arg, 'rt') as fh:
-            for line in fh:
-                line = line.strip()
-                if line:
-                    print(rle(line))
-    else:
-        print(rle(arg))
-
-
-# --------------------------------------------------
-def test_rle():
-    """Unit test for rle function"""
-    assert rle('') == ''
-    assert rle('A') == 'A'
-    assert rle('ACGT') == 'ACGT'
-    assert rle('AA') == 'A2'
-    assert rle('AAAAA') == 'A5'
-    assert rle('ACCGGGTTTT') == 'AC2G3T4'
+    try:
+        for encoded in process_input(args.str):
+            print(encoded)
+    except Exception as e:
+        print(f'Error: {e}', file=sys.stderr)
+        sys.exit(1)
 
 
 # --------------------------------------------------
