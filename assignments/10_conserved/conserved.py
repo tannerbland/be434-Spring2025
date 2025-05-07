@@ -8,6 +8,7 @@ Purpose: Find conserved bases in aligned sequences from a file
 import argparse
 import sys
 
+
 # --------------------------------------------------
 def get_args():
     """Get command-line arguments"""
@@ -17,8 +18,9 @@ def get_args():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('FILE',
-                        type=argparse.FileType('r'),
-                        help='Input file with aligned sequences')
+                       metavar='FILE',
+                       type=argparse.FileType('rt'),
+                       help='Input file with aligned sequences')
 
     return parser.parse_args()
 
@@ -26,42 +28,47 @@ def get_args():
 # --------------------------------------------------
 def parse_sequences(file):
     """Parse the input file and return a list of sequences"""
-    return [line.strip() for line in file if line.strip()]
+    sequences = []
+
+    for line in file:
+        line = line.strip()
+        # Skip empty lines and FASTA headers if present
+        if line and not line.startswith('>'):
+            sequences.append(line)
+
+    return sequences
 
 
 # --------------------------------------------------
 def find_conserved(sequences):
     """Return a string showing conserved (|) and variable (X) positions"""
-    if not sequences:
-        return ''
-
-    length = len(sequences[0])
-    if not all(len(seq) == length for seq in sequences):
-        sys.exit('Error: All sequences must be the same length.')
-
-    result = ''
-    for i in range(length):
-        chars = [seq[i] for seq in sequences]
-        if all(c == chars[0] for c in chars):
-          result += '|'
+    result = []
+    for bases in zip(*sequences):
+        if all(b == bases[0] for b in bases):
+            result.append('|')
         else:
-            result += 'X'
-
-    return result
+            result.append('X')
+    return ''.join(result)
 
 
 # --------------------------------------------------
 def main():
     """Main program logic"""
-
     args = get_args()
     sequences = parse_sequences(args.FILE)
+    args.FILE.close()
 
-    for seq in sequences:
-        print(seq)
+    if len(sequences) < 2:
+        print('Error: At least two sequences are required for comparison.', file=sys.stderr)
+        sys.exit(1)
 
-    conserved = find_conserved(sequences)
-    print(conserved)
+    if not all(len(seq) == len(sequences[0]) for seq in sequences):
+        print('Error: All sequences must be the same length.', file=sys.stderr)
+        sys.exit(1)
+
+    # Print sequences and conservation pattern
+    print('\n'.join(sequences))
+    print(find_conserved(sequences))
 
 
 # --------------------------------------------------
