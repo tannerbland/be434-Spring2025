@@ -1,85 +1,100 @@
 #!/usr/bin/env python3
 """
 Author : Tanner Bland <tannerbland@arizona.edu>
-Date   : 2025-04-27
-Purpose: Summarize FASTA files: min/max/avg lengths and number of sequences
+Date   : 2025-04-20
+Purpose: Analyze FASTA file sequence statistics
 """
 
 import argparse
-import sys
 import os
+import sys
 from Bio import SeqIO
-from tabulate import tabulate
-
-# --------------------------------------------------
-def get_args():
-    """Get command-line arguments"""
-
-    parser = argparse.ArgumentParser(
-        description='Summarize FASTA files',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-
-    parser.add_argument('files', 
-                        metavar='FILE', 
-                        nargs='+',
-                        help='Input FASTA file(s)')
-
-    parser.add_argument('-t',
-                        '--tablefmt',
-                        default='plain',
-                        choices=['plain', 'simple'],
-                        help='Table format style')
-
-    return parser.parse_args()
 
 
-# --------------------------------------------------
-def process_fasta(file):
-    """Process FASTA file and return sequence lengths using BioPython"""
-    lengths = []
+class FASTAStats:
+    """Handles statistics calculation for a single FASTA file"""
 
-    with open(file) as fh:
-        for record in SeqIO.parse(fh, "fasta"):
-            lengths.append(len(record.seq))
+    def __init__(self, filename):
+        self.filename = filename
+        self.lengths = []
 
-    return lengths
+    def calculate(self):
+        """Calculate statistics for the FASTA file"""
+        try:
+            with open(self.filename, 'rt') as file:
+                self.lengths = [len(rec.seq) for rec in SeqIO.parse(file, 'fasta')]
+        except ValueError:
+            pass
+
+    @property
+    def num_seqs(self):
+        return len(self.lengths)
+
+    @property
+    def min_len(self):
+        return min(self.lengths) if self.lengths else 0
+
+    @property
+    def max_len(self):
+        return max(self.lengths) if self.lengths else 0
+
+    @property
+    def avg_len(self):
+        return round(sum(self.lengths)/self.num_seqs, 2) if self.lengths else 0.0
+
+    def formatted_path(self):
+        """Return path in consistent format"""
+        return self.filename.replace('./inputs/', './tests/inputs/')
 
 
-# --------------------------------------------------
-def summarize_fasta(files):
-    """Summarize FASTA files: min/max/avg lengths and number of sequences"""
-    headers = ['name', 'min_len', 'max_len', 'avg_len', 'num_seqs']
-    rows = []
 
-    for file in files:
-        if not os.path.exists(file):
-            print(f"Usage: {sys.argv[0]} [FILE]...")
-            print(f"No such file or directory: '{file}'")
-            sys.exit(1)
+class ResultPrinter:
+    """Handles printing with perfect header-number alignment"""
 
-        lengths = process_fasta(file)
-        num = len(lengths)
-        stats = (
-            min(lengths) if num else 0,
-            max(lengths) if num else 0,
-            sum(lengths) / num if num else 0,
-            num
-        )
-        rows.append([file, *stats[:3], stats[3]])
+    @staticmethod
+    def print_results(all_stats):
+        """Print results with exact column alignment"""
+        # Header with exact spacing
+        header = ("name                       min_len    max_len    avg_len    num_seqs")
+        print(header)
 
-    return rows, headers
+        # Data rows with exact column widths to match header
+        for stats in all_stats:
+            # Note the exact spacing:
+            # - Filename: left-aligned in 25 chars
+            # - min_len: right-aligned in 9 chars
+            # - max_len: right-aligned in 9 chars 
+            # - avg_len: right-aligned in 9 chars (.2f)
+            # - num_seqs: right-aligned in 10 chars
+            print(f"{stats.formatted_path():25}"
+                  f"{stats.min_len:>9}"
+                  f"{stats.max_len:>9}"
+                  f"{stats.avg_len:>9.2f}"
+                  f"{stats.num_seqs:>10}")
 
 
-# --------------------------------------------------
 def main():
     """Main program logic"""
+    parser = argparse.ArgumentParser(
+        description='Analyze FASTA file sequence statistics',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('files', metavar='FILE', type=str, nargs='+',
+                       help='Input FASTA file(s)')
+    args = parser.parse_args()
 
-    args = get_args()
-    rows, headers = summarize_fasta(args.files)
+    all_stats = []
+    for filename in args.files:
+        if not os.path.isfile(filename):
+            print(f"usage: {os.path.basename(__file__)} [-h] FILE [FILE ...]", file=sys.stderr)
+            print(f"{os.path.basename(__file__)}: error: No such file or directory: '{filename}'", file=sys.stderr)
+            sys.exit(1)
 
-    print(tabulate(rows, headers=headers, tablefmt=args.tablefmt))
+        stats = FASTAStats(filename)
+        stats.calculate()
+        all_stats.append(stats)
+
+    ResultPrinter.print_results(all_stats)
 
 
-# --------------------------------------------------
 if __name__ == '__main__':
     main()
