@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Author: Your Name
+Author: Tanner Bland <tannerbland@arizona.edu>
+Date: 2025-05-07
 Purpose: Encode or decode text using a Caesar cipher
 """
 
